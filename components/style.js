@@ -81,6 +81,7 @@ export const StyledTextInput = styled.TextInput`
     font-size: 16px;
     height: 60px;
     margin-vertical: 3px;
+    margin-top: 10px;
     margin-bottom: 18px;
     color: ${tertiary};
     border-bottom-width: 1px;
@@ -90,14 +91,14 @@ export const StyledTextInput = styled.TextInput`
 //THIS IS FOR THE LABEL OF INPUT FIELD
 export const StyledInputLabel = styled.Text`
     color: black;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     text-align: left;
 `;
 
 export const LeftIcon = styled.View`
-    left: 10px;
-    top: 38px;
+    left: 5px;
+    top: 40px;
     position: absolute;
     z-index: 1;
 `;

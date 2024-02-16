@@ -48,14 +48,17 @@ const Signup = () => {
                     </SubTitle>
                 </PageTitle> 
 
-                <Formik
+                <Formik 
                     
                     initialValues={{email: '', createPassword: '', confirmPassowrd: ''}}
                     onSubmit={(Values) =>{ 
                     console.log(Values);
                 }}
-                >{({handleChange, handleBlur, handleSubmit, values}) => (<StyledFormArea >
-                    <MyTextInput 
+                >{({handleChange, handleBlur, handleSubmit, values}) => (
+                    
+                <StyledFormArea iconn={true}>
+
+                    <MyTextInput name="Icn"
                         label="Email Address or Username"
                         icon="mail"
                         placeholder="Enter your email"
@@ -66,7 +69,7 @@ const Signup = () => {
                         keyboardType="email-address"
                     />
 
-                    <MyTextInput 
+                    <MyTextInput name="Icn"
                         label="Create Password"
                         icon="lock"
                         placeholder="Enter your password"
@@ -93,8 +96,6 @@ const Signup = () => {
                         hidePassword = {hidePassword}
                         setHidePassword = {setHidePassword}
                     />
-
-                    <MsgBox>...</MsgBox>
 
                     <StyledButton onPress={handleSubmit}>
                         <ButtonText>Sign up</ButtonText>
@@ -123,7 +124,7 @@ const MyTextInput = ({label, icon, isPassword, hidePassword, setHidePassword, ..
     return (
         <View>
             <LeftIcon>
-                <Octicons name={icon} size={30} color={brand}/>
+                <Octicons name={icon} size={25} color={brand}/>
             </LeftIcon>
             <StyledInputLabel>{label}</StyledInputLabel>
             <StyledTextInput {...props} />

@@ -14,9 +14,9 @@ const StyledView = styled.View `
 `
 
 
-const NotificationScreen = (props) => {
+const PostScreen = (props) => {
     return <StyledView {...props}>{props.children}</StyledView>;
 }
 
 
-export default NotificationScreen;
+export default PostScreen;

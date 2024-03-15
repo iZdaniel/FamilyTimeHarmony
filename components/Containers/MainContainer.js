@@ -1,8 +1,8 @@
 import React from 'react'
 
 import styled from 'styled-components/native';
-import { StatusBarHeight } from '../components/shared';
-import { colors } from '../components/colors';
+import { StatusBarHeight } from '../shared';
+import { colors } from '../colors';
 
 const {primary} = colors;
 
@@ -14,9 +14,9 @@ const StyledView = styled.View `
 `
 
 
-const NotificationScreen = (props) => {
+const MainContainer = (props) => {
     return <StyledView {...props}>{props.children}</StyledView>;
 }
 
 
-export default NotificationScreen;
+export default MainContainer;

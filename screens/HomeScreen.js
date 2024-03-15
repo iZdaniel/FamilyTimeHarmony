@@ -3,8 +3,11 @@ import React from 'react'
 import styled from 'styled-components/native';
 import { StatusBarHeight } from '../components/shared';
 import { colors } from '../components/colors';
-
+import { View } from 'react-native';
+import RegularText from '../components/Text/RegularText';
 const {primary} = colors;
+
+
 
 const StyledView = styled.View `
     flex: 1;
@@ -14,9 +17,15 @@ const StyledView = styled.View `
 `
 
 
-const NotificationScreen = (props) => {
-    return <StyledView {...props}>{props.children}</StyledView>;
+const HomeScreen = (props) => {
+    return (
+    <StyledView {...props}>
+        <View>
+            <RegularText style={{textAlign: 'center'}}>Welcome Sa Home Page Ko Tarantado!</RegularText>
+        </View>
+    </StyledView>
+    );
 }
 
 
-export default NotificationScreen;
+export default HomeScreen;

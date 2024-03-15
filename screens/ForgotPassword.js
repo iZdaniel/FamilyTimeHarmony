@@ -7,22 +7,18 @@ const {primary} = colors;
 // Customs components
 import MainContainer from '../components/Containers/MainContainer';
 import KeyboardAvoidingContainer from '../components/KeyboardAvoidingContainer';
-import BigText from '../components/Text/BigText';
 import StyledTextInput from '../components/Inputs/StyledTextInput';
 import MsgBox from '../components/Text/MsgBox';
-import RegularButton from '../components/Buttons/RegularButtons'
-import PressableText from '../components/Text/PressableText';
-import RowContainer from '../components/Containers/RowContainer';
-import PageLogo from '../components/PageLogo';
-import { InnerContainer } from '../components/style';
-import GoogleButtons from '../components/Buttons/GoogleButtons';
+import RegularButton from '../components/Buttons/RegularButtons';
+import IconHeader from '../components/Icons/IconHeader';
+import RegularText from '../components/Text/RegularText';
 
-const Login = () => {
+const ForgotPassword = () => {
 
     const [message, setMessage] = useState('');
     const [isSuccessMessage, setIsSuccessMessage] = useState(false);
 
-    const handleLogin = async(creadentials, setSubmitting) => {
+    const handleOnSubmit = async(creadentials, setSubmitting) => {
         try {
             setMessage(null);
 
@@ -32,26 +28,26 @@ const Login = () => {
 
             setSubmitting(false);
         } catch (error) {
-            setMessage('Login failed' + error.message);
+            setMessage('Request failed' + error.message);
             setSubmitting(false);
         }
     }
     return (
     <MainContainer>
         <KeyboardAvoidingContainer>
-            <InnerContainer>
-                <PageLogo resizeMode="cover" source={require('./../assets/img/img1.jpg')}/>
-            </InnerContainer>
-                <BigText style={{marginBottom: 25}}>Login</BigText>
-
+           
+            <IconHeader name={'key'} style={{marginBottom: 30}} />
+            
+            <RegularText>Provide the details below to begin the process</RegularText>
+            
             <Formik 
-                initialValues={{ email: '', password: '' }}
+                initialValues={{ email: ''}}
                 onSubmit={(values, {setSubmitting}) => {
-                    if (values.email == "" || values.password == "") {
+                    if (values.email == 's') {
                         setMessage('Please fill in all fields');
                         setSubmitting(false);
                     } else {
-                       handleLogin(values, setSubmitting);
+                       handleOnSubmit(values, setSubmitting);
                     }
                 }}
             >
@@ -61,7 +57,7 @@ const Login = () => {
                         <StyledTextInput 
                             label="Email Address" 
                             icon="email" 
-                            placeholder="Enter your email here..."
+                            placeholder="famtimeharmony@gmail.com"
                             keyboardType="email-address"
                             onChangeText = {handleChange('email')}
                             onBlur = {handleBlur('email')}
@@ -69,30 +65,14 @@ const Login = () => {
                             style={{marginBottom: 25}}
                             />
             
-                        <StyledTextInput 
-                            label="Password" 
-                            icon="lock" 
-                            placeholder="* * * * * * * *"
-                            onChangeText = {handleChange('password')}
-                            onBlur = {handleBlur('password')}
-                            value={values.password}
-                            isPassword={true}
-                            style={{marginBottom: 15}}  
-                           />
+                        
                            
                         <MsgBox style={{marginBottom: 5}} success={isSuccessMessage}> {message || ''} </MsgBox>
 
-                        {!isSubmitting && <RegularButton onPress={handleSubmit}>Login</RegularButton>}
+                        {!isSubmitting && <RegularButton onPress={handleSubmit}>Submit</RegularButton>}
                         {isSubmitting && <RegularButton disabled={true}><ActivityIndicator size="small" color={primary} /></RegularButton>}
-                        
-                        <GoogleButtons google={true} onPress={handleSubmit}>
-                           
-                        </GoogleButtons>
 
-                        <RowContainer>
-                            <PressableText onPress={() => {}}>Don't have an account? Signup</PressableText>
-                            <PressableText onPress={() => {}}>Forgot Password</PressableText>
-                        </RowContainer>
+                       
                     </>
 
                 )}
@@ -102,7 +82,7 @@ const Login = () => {
         </KeyboardAvoidingContainer>
     </MainContainer>
     );
-};
+}
 
 
-export default Login;
+export default ForgotPassword;
